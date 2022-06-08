@@ -13,6 +13,7 @@ export default resolver.pipe(resolver.zod(Signup), async ({ email, password }, c
   await ctx.session.$create({ userId: user.id, role: user.role as Role })
 
   console.log(`signup.ts user:`, user)
+  // @ts-ignore
   console.log(`signup.ts ctx.session._kernel.sessionToken:`, ctx.session._kernel.sessionToken)
 
   return user
